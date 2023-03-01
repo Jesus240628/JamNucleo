@@ -5,11 +5,13 @@
  */
 package mx.itson.jamnucleo;
 
+import java.util.List;
+import mx.itson.jam.nucleo.execepciones.CapacidadException;
 import mx.itson.jam.nucleo.execepciones.ImpuestoException;
 
 /**
  *
- * @author medin
+ * @author Jesus Javier Quintero Fierro
  */
 public class Operacion {
     
@@ -22,5 +24,17 @@ public class Operacion {
         }
         
         return(importe * (tasaIVA/100));
+    }
+    
+    public int medirCapacidad(List <Integer> capacidad) throws CapacidadException{
+    if(capacidad.isEmpty()|| capacidad.size()>10){
+        throw new CapacidadException("La capacidad no puede ser cero elementos ó mas de diez elementos");
+        } 
+     int resultado=0;
+        
+      for(int a =0 ; a< capacidad.size(); a++){
+        resultado += capacidad.get(a);
+        }
+    return resultado;
     }
 }
